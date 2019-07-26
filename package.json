@@ -1,5 +1,5 @@
 {
-  "name": "hashmac",
+  "name": "hmac-tool",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,6 @@
     "minimist": "^1.2.0"
   },
   "bin": {
-      "hashmac": "index.js"
+      "hmac-tool": "index.js"
   }
 }
