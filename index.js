@@ -3,11 +3,12 @@
 const parseArgs = require('minimist');
 
 const argv = parseArgs(process.argv.slice(2), {
-    alias: { 's': ['secret'] },
-    string: ['s', 'secret', '_']
+    alias: { 's': ['secret'], 'h': ['help'] },
+    string: ['s', 'secret', '_'],
+    boolean: ['h', 'help']
 });
 
-if ( !argv._.length && !argv.secret ) {
+if ( !argv._.length && !argv.secret || argv.help ) {
     usage();
     process.exit(0);
 }
@@ -26,10 +27,24 @@ if ( !argv._.length && !argv.secret ) {
     //Creating the hmac in the required format
     const gen_hmac = data.digest('base64');
 
-    console.log(`hmac : ${gen_hmac}`);
+    console.log(gen_hmac);
 })();
 
 function usage() {
-    console.log()
+    const cmd = `
+This is a command line tool for calculate hmac with sha256 and base64 encrypt.
+
+Default Secret Key is '' (empty String), please use this tool with your key each time.
+
+Usage:
+------------
+-h  --help   : help for usage.
+-s  --secret : secret key for hamc.
+
+Example.
+------------
+hmac-tool '{"a": 1, "b": 1}' -s 'secret'
+        `;
+    console.log(cmd);
 }
 
