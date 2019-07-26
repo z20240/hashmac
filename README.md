@@ -11,13 +11,14 @@ Usage:
 
 ## Getting Start
 
-### Install by clone git
+### Install by npm
 
 ```
 npm i hmac-tool -g
 ```
 
 Or
+### Install by clone git
 
 ```
 $ git clone https://github.com/z20240/hmac-tool.git
