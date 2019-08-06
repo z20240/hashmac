@@ -28,6 +28,8 @@ if ( !argv._.length && !argv.secret || argv.help ) {
     const gen_hmac = data.digest('base64');
 
     console.log(gen_hmac);
+
+    console.log("String Length:" + param_str);
 })();
 
 function usage() {
@@ -47,4 +49,3 @@ hmac-tool '{"a": 1, "b": 1}' -s 'secret'
         `;
     console.log(cmd);
 }
-
