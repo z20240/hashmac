@@ -29,7 +29,7 @@ if ( !argv._.length && !argv.secret || argv.help ) {
 
     console.log(gen_hmac);
 
-    console.log("String Length:" + param_str);
+    console.log("String Length:" + param_str.length);
 })();
 
 function usage() {
