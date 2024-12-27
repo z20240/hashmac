@@ -8,7 +8,7 @@ const argv = parseArgs(process.argv.slice(2), {
     boolean: ['h', 'help']
 });
 
-if ( !argv._.length && !argv.secret || argv.help ) {
+if (!argv._.length && !argv.secret || argv.help) {
     usage();
     process.exit(0);
 }
@@ -28,6 +28,14 @@ if ( !argv._.length && !argv.secret || argv.help ) {
     const gen_hmac = data.digest('base64');
 
     console.log(gen_hmac);
+
+    console.log("--------------------------------");
+
+    const key = Buffer.from(secret, 'utf8'); // 将密钥转换为 Buffer
+    const newhmac = crypto.createHmac('sha256', key); // 创建 HMAC 实例
+    newhmac.update(param_str); // 更新 HMAC 计算
+    console.log(newhmac.digest('hex'));
+    console.log("--------------------------------");
 
     console.log("String Length:" + param_str.length);
 })();
